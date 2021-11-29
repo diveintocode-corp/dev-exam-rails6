@@ -1,5 +1,4 @@
 class BuildingsController < ApplicationController
-
   def index 
     @buildings = Building.all
   end
@@ -15,10 +14,16 @@ class BuildingsController < ApplicationController
     else
       render :new 
     end
-    
+  end
+
+  def show
+    @building = Building.find(params[:id])
   end
   
-  private
+  private 
+  def set_params
+    @building = Building.find(params[:id])
+  end
   def building_params 
     params.require(:building).permit(:building_name,:rent,:address,:age_of_building,:remark)
   end

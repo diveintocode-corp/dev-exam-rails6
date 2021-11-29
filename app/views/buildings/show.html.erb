@@ -1,2 +1,25 @@
-<h1>Buildings#show</h1>
-<p>Find me in app/views/buildings/show.html.erb</p>
+
+<table>
+  <tbody>
+  <tr>
+    <th>物件名</th>
+    <td><%= @building.building_name %></td>
+  </tr>
+  <tr>
+    <th>賃料</th>
+    <td><%= @building.rent %></td><br>
+  </tr>
+  <tr>
+    <th>住所</th>
+    <td><%= @building.address %></td><br>
+  </tr>
+  <tr>
+    <th>築年数</th>
+    <td><%= @building.age_of_building%></td><br>
+  </tr>
+  <tr>
+    <th>備考</th>
+    <td><%= @building.remark%></td><br>
+  </tr>
+  </tbody>
+</table>
