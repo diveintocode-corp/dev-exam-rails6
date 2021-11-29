@@ -1,4 +1,5 @@
 class BuildingsController < ApplicationController
+  before_action :set_building, only: %i(show edit update destroy)
   def index 
     @buildings = Building.all
   end
@@ -17,11 +18,27 @@ class BuildingsController < ApplicationController
   end
 
   def show
-    @building = Building.find(params[:id])
   end
-  
+
+  def edit
+  end
+
+  def update
+    if @building.update(building_params)
+      redirect_to buildings_path ,notice: '物件編集しました'
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @building.destroy
+    redirect_to buildings_path,notece: '物件を削除しました'
+  end
+
+
   private 
-  def set_params
+  def set_building
     @building = Building.find(params[:id])
   end
   def building_params 

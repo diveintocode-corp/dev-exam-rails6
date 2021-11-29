@@ -1,24 +1,2 @@
 <h1>物件登録</h1>
-<%= form_with(model:@building, local: true) do |form|%>
-  <div class="building_name">
-    <%= form.label :building_name %><br>
-    <%= form.text_field :building_name %>
-  </div>
-  <div class="rent">
-    <%= form.label :rent %><br>
-    <%= form.text_field :rent %>
-  </div>
-  <div class="address">
-    <%= form.label :address %><br>
-    <%= form.text_field :address %>
-  </div>
-  <div class="age_of_building">
-    <%= form.label :age_of_building %><br>
-    <%= form.text_field :age_of_building %>
-  </div>
-  <div class="remark">
-    <%= form.label :remark%><br>
-    <%= form.text_field :remark%>
-  </div>
-  <%= form.submit%>
-<% end %>
+<%= render 'form' %>

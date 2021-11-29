@@ -21,7 +21,9 @@
       <td><%= building.address %></td>
       <td><%= building.age_of_building %></td>
       <td><%= building.remark %></td>
-      <td><%= link_to '詳細',building_path(building.id)%></td>
+      <td><%= link_to '詳細',building_path(building.id) %></td>
+      <td><%= link_to '編集',edit_building_path(building.id) %></td>
+      <td><%= link_to '削除',building_path(building.id),method: :delete, data: {confirm: '本当に削除しますか？'} %></td>
     </tr>
   <% end %>
   </tbody>
