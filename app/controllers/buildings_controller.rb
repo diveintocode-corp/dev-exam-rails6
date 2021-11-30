@@ -22,6 +22,7 @@ class BuildingsController < ApplicationController
   end
 
   def edit
+    @building.nearest_stations.build
   end
 
   def update
