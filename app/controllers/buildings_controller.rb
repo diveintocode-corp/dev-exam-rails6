@@ -42,6 +42,15 @@ class BuildingsController < ApplicationController
     @building = Building.find(params[:id])
   end
   def building_params 
-    params.require(:building).permit(:building_name,:rent,:address,:age_of_building,:remark)
+    params.require(:building).permit(
+                                    :building_name,
+                                    :rent,
+                                    :address,
+                                    :age_of_building, 
+                                    :remark,
+                                    nearest_stations_attributes:[
+                                                        :route_name,
+                                                        :station_name,
+                                                        :walking_minitues])
   end
 end
