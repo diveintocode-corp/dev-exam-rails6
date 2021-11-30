@@ -6,6 +6,7 @@ class BuildingsController < ApplicationController
   
   def new
     @building = Building.new
+    2.times {@building.nearest_stations.build}
   end
 
   def create
@@ -49,6 +50,8 @@ class BuildingsController < ApplicationController
                                     :age_of_building, 
                                     :remark,
                                     nearest_stations_attributes:[
+                                                        :id,
+                                                        :building_id,
                                                         :route_name,
                                                         :station_name,
                                                         :walking_minitues])

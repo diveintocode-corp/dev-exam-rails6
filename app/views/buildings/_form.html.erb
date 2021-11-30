@@ -9,25 +9,44 @@
       </ul>
     </div>
   <% end %>
-  <div class="building_name">
-    <%= form.label :building_name %><br>
-    <%= form.text_field :building_name %>
+  <div class="building">
+    <div class="building_name">
+      <%= form.label :building_name %><br>
+      <%= form.text_field :building_name %>
+    </div>
+    <div class="rent">
+      <%= form.label :rent %><br>
+      <%= form.text_field :rent %>
+    </div>
+    <div class="address">
+      <%= form.label :address %><br>
+      <%= form.text_field :address %>
+    </div>
+    <div class="age_of_building">
+      <%= form.label :age_of_building %><br>
+      <%= form.text_field :age_of_building %>
+    </div>
+    <div class="remark">
+      <%= form.label :remark%><br>
+      <%= form.text_field :remark%>
+    </div>
   </div>
-  <div class="rent">
-    <%= form.label :rent %><br>
-    <%= form.text_field :rent %>
-  </div>
-  <div class="address">
-    <%= form.label :address %><br>
-    <%= form.text_field :address %>
-  </div>
-  <div class="age_of_building">
-    <%= form.label :age_of_building %><br>
-    <%= form.text_field :age_of_building %>
-  </div>
-  <div class="remark">
-    <%= form.label :remark%><br>
-    <%= form.text_field :remark%>
-  </div>
-  <%= form.submit%>
+    <%= form.fields_for :nearest_stations do |f|%>
+    <div class="nearest_station">
+      <h3>最寄り駅</h3>
+      <div class="route_name">
+        <%= f.label :route_name %>
+        <%= f.text_field :route_name %>
+      </div>
+      <div class="station_name">
+        <%= f.label :station_name %>
+        <%= f.text_field :station_name %>
+      </div>
+      <div class="walking_minitues">
+        <%= f.label :walking_minitues %>
+        <%= f.text_field :walking_minitues %>
+      </div>
+    </div>
+    <% end %>
+  　 <%= form.submit%>
 <% end %>
