@@ -2,15 +2,15 @@ ja:
   activerecord:
     models:
       building: 物件
-      near_station: 最寄り駅
+      nearest_station: 最寄り駅
     attributes:
-      Building:
+      building:
         building_name: 物件名
         rent: 賃料
         address: 住所
         age_of_building: 築年数
         remark: 備考
-      near_station:
+      nearest_station:
+        walking_minitues: 徒歩分数
         route_name: 路線名
         station_name: 駅名
-        walking_minutes: 徒歩分数
