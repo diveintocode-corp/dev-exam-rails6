@@ -31,9 +31,10 @@
       <%= form.text_field :remark%>
     </div>
   </div>
+    <% n = 0 %>
     <%= form.fields_for :nearest_stations do |f|%>
     <div class="nearest_station">
-      <h3>最寄り駅</h3>
+      <h3>最寄り駅<%= n += 1%></h3>
       <div class="route_name">
         <%= f.label :route_name %>
         <%= f.text_field :route_name %>

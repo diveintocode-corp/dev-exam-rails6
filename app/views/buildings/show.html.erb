@@ -6,21 +6,38 @@
   </tr>
   <tr>
     <th>賃料</th>
-    <td><%= @building.rent %></td><br>
+    <td><%= @building.rent %></td>
   </tr>
   <tr>
     <th>住所</th>
-    <td><%= @building.address %></td><br>
+    <td><%= @building.address %></td>
   </tr>
   <tr>
     <th>築年数</th>
-    <td><%= @building.age_of_building%></td><br>
+    <td><%= @building.age_of_building%></td>
   </tr>
   <tr>
     <th>備考</th>
-    <td><%= @building.remark%></td><br>
+    <td><%= @building.remark%></td>
   </tr>
   </tbody>
 </table>
-
-
+<% n = 0%>
+<% @building.nearest_stations.each do |nearest_station|%>
+<table>
+<h3>最寄り駅<%=n += 1%></h3>
+<%binding.irb%>
+  <tr>
+    <th>路線名</th>
+    <td><%= nearest_station.route_name %></td>
+  </tr>
+    <tr>
+    <th>駅名</th>
+    <td><%= nearest_station.station_name %></td>
+  </tr>
+    <tr>
+    <th>徒歩分数</th>
+    <td><%= nearest_station.walking_minitues %></td>
+  </tr>
+  <% end %>
+</table>
