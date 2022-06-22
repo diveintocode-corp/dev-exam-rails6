@@ -18,18 +18,12 @@ class PropertiesController < ApplicationController
     @property.nearest_stations.build
   end
 
-  # POST /properties or /properties.json
   def create
     @property = Property.new(property_params)
-
-    respond_to do |format|
-      if @property.save
-        format.html { redirect_to @property, notice: "Property was successfully created." }
-        format.json { render :show, status: :created, location: @property }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @property.errors, status: :unprocessable_entity }
-      end
+    if @property.save
+      redirect_to properties_path, notice: "物件登録完了"
+    else
+      render :new
     end
   end
 
