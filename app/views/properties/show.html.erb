@@ -1,29 +1,46 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p>
+    <span class="bold">物件名:</span>
+    <%= @property.property_name %>
+  </p>
+  <p>
+    <span class="bold">賃料:</span>
+    <%= "#{@property.rent.to_s(:delimited)}円" %>
+  </p>
+  <p>
+    <span class="bold">住所:</span>
+    <%= @property.address %>
+  </p>
+  <p>
+    <span class="bold">築年数</span>
+    <%= "#{@property.age}年" %>
+  </p>
+  <p>
+    <span class="bold">備考</span>
+    <%= @property.content %>
+  </p>
+</div>
+<hr>
+  <% @nearest_stations.each do |nearest_station, i| %>
+    <% if @property.nearest_stations.any? %>
+        <div class="container">
+          <h3>最寄駅</h3>
+          <%= i = +1 %>
+        <p>
+          <span class="bold">路線名</span>
+          <%= nearest_station.route_name %>
+        </p>
+        <p>
+          <span class="bold">駅名</span>
+          <%= nearest_station.station_name %>
+        </p>
+        <p>
+          <span class="bold">賃料:</span>
+          <%= "#{nearest_station.time_walk}分" %>
+        </p>
+      </div>
+    <% end %>
+  <% end %>
 
-<p>
-  <strong>Property name:</strong>
-  <%= @property.property_name %>
-</p>
-
-<p>
-  <strong>Rent:</strong>
-  <%= @property.rent %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @property.address %>
-</p>
-
-<p>
-  <strong>Age:</strong>
-  <%= @property.age %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @property.content %>
-</p>
-
-<%= link_to 'Edit', edit_property_path(@property) %> |
-<%= link_to 'Back', properties_path %>
+<%= link_to '編集', edit_property_path(@property.id) %>|
+<%= link_to '戻る', properties_path %>

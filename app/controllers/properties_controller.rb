@@ -5,8 +5,8 @@ class PropertiesController < ApplicationController
     @properties = Property.all
   end
 
-  # GET /properties/1 or /properties/1.json
   def show
+    @nearest_stations = @property.nearest_stations
   end
 
   def new
