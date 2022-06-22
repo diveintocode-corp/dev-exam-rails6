@@ -14,8 +14,8 @@ class PropertiesController < ApplicationController
     2.times { @property.nearest_stations.build }
   end
 
-  # GET /properties/1/edit
   def edit
+    @property.nearest_stations.build
   end
 
   # POST /properties or /properties.json
@@ -33,16 +33,11 @@ class PropertiesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /properties/1 or /properties/1.json
   def update
-    respond_to do |format|
-      if @property.update(property_params)
-        format.html { redirect_to @property, notice: "Property was successfully updated." }
-        format.json { render :show, status: :ok, location: @property }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @property.errors, status: :unprocessable_entity }
-      end
+    if @property.update(property_params)
+      redirect_to properties_path, notice: "物件の編集完了"
+    else
+      render :edit
     end
   end
 
