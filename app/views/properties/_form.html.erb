@@ -36,7 +36,27 @@
     <%= form.text_area :note %>
   </div>
 
+<h1>Nearest Station</h1>
+
+<%= form.fields_for:nearest_stations do |nearest_station| %>
+  <div class="field">
+    <%= nearest_station.label :line %>
+    <%= nearest_station.text_field :line %>
+  </div>
+
+  <div class="field">
+    <%= nearest_station.label :station %>
+    <%= nearest_station.text_field :station %>
+  </div>
+
+  <div class="field">
+    <%= nearest_station.label :duration %>
+    <%= nearest_station.text_field :duration %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
+  
+  <% end %>
   </div>
 <% end %>
