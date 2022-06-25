@@ -25,29 +25,33 @@
   <%= @property.note %>
 </p>
 
-<% if false %>
+
 
 <p id="notice"><%= notice %></p>
 
 
-<p>
+
+
+  <% @property.nearest_stations.each_with_index do |station,i| %>
+  
+  <h3><strong> 最寄駅 <%= "#{i+1}" %> </strong></h3>
+
+  <div>
   <strong>Line:</strong>
-  <%= @property.nearest_stations.line %>
-</p>
+  <%= station.line %>
+  </div>
 
-
-
-<p>
+  <div>
   <strong>Station:</strong>
-  <%= @property.station %>
-</p>
+  <%= station.station %>
+  </div>
 
-<p>
+  <div>
   <strong>Duration:</strong>
-  <%= @property.nearest_stations.duration %>
-</p>
+  <%= station.duration %>
+  </div>
 
-<% end %>
+  <% end %>
 
 <%= link_to 'Edit', edit_property_path(@property) %> |
 <%= link_to 'Back', properties_path %>
