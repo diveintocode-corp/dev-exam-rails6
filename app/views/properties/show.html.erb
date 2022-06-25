@@ -25,5 +25,26 @@
   <%= @property.note %>
 </p>
 
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Line:</strong>
+  <%= @property.nearest_stations.line %>
+</p>
+
+<% if false %>
+
+<p>
+  <strong>Station:</strong>
+  <%= @property.station %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @property.nearest_stations.duration %>
+</p>
+
+<% end %>
+
 <%= link_to 'Edit', edit_property_path(@property) %> |
 <%= link_to 'Back', properties_path %>
