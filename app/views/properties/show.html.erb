@@ -1,57 +1,50 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>物件名:</strong>
   <%= @property.name %>
 </p>
 
 <p>
-  <strong>Price:</strong>
+  <strong>賃料:</strong>
   <%= @property.price %>
 </p>
 
 <p>
-  <strong>Address:</strong>
+  <strong>住所:</strong>
   <%= @property.address %>
 </p>
 
 <p>
-  <strong>Age:</strong>
+  <strong>築年数:</strong>
   <%= @property.age %>
 </p>
 
 <p>
-  <strong>Note:</strong>
+  <strong>備考:</strong>
   <%= @property.note %>
 </p>
-
-
-
-<p id="notice"><%= notice %></p>
-
-
-
 
   <% @property.nearest_stations.each_with_index do |station,i| %>
   
   <h3><strong> 最寄駅 <%= "#{i+1}" %> </strong></h3>
 
   <div>
-  <strong>Line:</strong>
+  <strong>路線名:</strong>
   <%= station.line %>
   </div>
 
   <div>
-  <strong>Station:</strong>
+  <strong>駅名:</strong>
   <%= station.station %>
   </div>
 
   <div>
-  <strong>Duration:</strong>
+  <strong>徒歩分数:</strong>
   <%= station.duration %>
   </div>
 
   <% end %>
 
-<%= link_to 'Edit', edit_property_path(@property) %> |
-<%= link_to 'Back', properties_path %>
+<%= link_to '編集', edit_property_path(@property) %> |
+<%= link_to '戻る', properties_path %>
