@@ -40,7 +40,7 @@
 
 <%= form.fields_for:nearest_stations do |nearest_station| %>
 
-<h1>Nearest Station①</h1>
+<h1>Nearest Station <%="#{nearest_station.index + 1}"%> </h1>
 
   <div class="field">
     <%= nearest_station.label :line %>

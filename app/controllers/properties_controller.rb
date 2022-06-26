@@ -18,6 +18,7 @@ class PropertiesController < ApplicationController
 
   # GET /properties/1/edit
   def edit
+    @property.nearest_stations.build
   end
 
   # POST /properties or /properties.json
